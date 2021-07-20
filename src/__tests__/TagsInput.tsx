@@ -14,9 +14,9 @@ describe('TagsInput Component', () => {
   it('deve renderizar as tags enviadas por atributos', () => {
     const emails = ['contato@rarolabs.com.br', 'nao-responda@rarolabs.com.br']
 
-    const { debug } = render(<TagsInput tags={emails} />)
+    // const { debug } = render(<TagsInput tags={emails} />)
 
-    debug()
+    // debug()
   })
 
   it('deve renderizar tags quando preencher o input e pressionar enter', () => {
