@@ -30,7 +30,7 @@ const TagsInput: React.FC = () => {
 
   //Function to verify if the email is valid using a regex as comparison unit
   const validEmail = (email: string) => {
-    const regexEmail =
+    const regexEmail: RegExp =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i
 
     if (regexEmail.test(email)) {
@@ -51,7 +51,7 @@ const TagsInput: React.FC = () => {
           const arrayEmails = e.target.value.split(';')
 
           // Remove all " "(blank space) in the strings of array and call the function that valid email
-          arrayEmails.forEach((element, index) => {
+          arrayEmails.forEach((element: string, index: number) => {
             arrayEmails[index] = element.trim()
             validEmail(arrayEmails[index])
           })
