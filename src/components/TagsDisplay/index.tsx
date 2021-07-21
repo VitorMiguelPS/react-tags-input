@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Typography, Grid, Chip } from '@material-ui/core'
+import { Grid, Chip } from '@material-ui/core'
 
 import { TagContext } from '../../context/TagContext'
 import useStyles from './styles'

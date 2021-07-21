@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import Chip from '@material-ui/core/Chip'
 import TextField from '@material-ui/core/TextField'
 
 import { TagContext } from '../../context/TagContext'
