@@ -1,5 +1,5 @@
 import React from 'react'
-import TagsInput from '@/components/TagsInput'
+import TagsInput from '../components/TagsInput'
 import { cleanup, render } from '@testing-library/react'
 
 describe('TagsInput Component', () => {
@@ -12,7 +12,7 @@ describe('TagsInput Component', () => {
   })
 
   it('deve renderizar as tags enviadas por atributos', () => {
-    const emails = ['contato@rarolabs.com.br', 'nao-responda@rarolabs.com.br']
+    const emails = ['vitortitom@gmail.com']
 
     // const { debug } = render(<TagsInput tags={emails} />)
 

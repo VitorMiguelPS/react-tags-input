@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { Typography, Paper, Grid } from '@material-ui/core'
 
 import TagsInput from './components/TagsInput'
 import useStyles from './styles/styles'
@@ -12,15 +12,17 @@ const App: React.FC = () => {
 
   return (
     <TagContextProvider>
-      <div className={classes.appMainContainer}>
-        <Typography variant="h2" className={classes.titlePage}>
-          Insert all tags
-        </Typography>
+      <Grid container justify="center" alignItems="center" className={classes.appMainContainer}>
+        <Paper elevation={3} className={classes.appMainPaper}>
+          <Typography variant="h2" className={classes.titlePage}>
+            E-mails List
+          </Typography>
 
-        <TagsInput />
+          <TagsInput />
 
-        <TagsDisplay />
-      </div>
+          <TagsDisplay />
+        </Paper>
+      </Grid>
     </TagContextProvider>
   )
 }

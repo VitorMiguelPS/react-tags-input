@@ -6,7 +6,11 @@ import useStyles from './styles'
 
 const TagsDisplay: React.FC = () => {
   const classes = useStyles()
-  const { emails, setEmails } = useContext(TagContext)
+
+  const {
+    emails, // Context variable that store all tags list
+    setEmails, // Context function that update tags list
+  } = useContext(TagContext)
 
   // Function that delete a selected tag using index number assigned in map render function
   const handleDelete = (index: number) => () => {
@@ -18,7 +22,13 @@ const TagsDisplay: React.FC = () => {
   return (
     <Grid className={classes.tagsBox}>
       {emails.map((item, index) => (
-        <Chip key={index} tabIndex={-1} label={item} onDelete={handleDelete(index)} />
+        <Chip
+          className={classes.tagsItem}
+          key={index}
+          tabIndex={-1}
+          label={item}
+          onDelete={handleDelete(index)}
+        />
       ))}
     </Grid>
   )

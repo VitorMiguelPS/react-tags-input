@@ -1,9 +1,13 @@
-import React, { useState, useContext } from 'react'
-import TextField from '@material-ui/core/TextField'
+import React, { useContext } from 'react'
+import { TextField, InputAdornment } from '@material-ui/core'
+import EmailIcon from '../../assets/images/email.png'
 
+import useStyles from './styles'
 import { TagContext } from '../../context/TagContext'
 
 const TagsInput: React.FC = () => {
+  const classes = useStyles()
+
   const {
     emails, // Context variable that store all tags list
     setEmails, // Context function that update tags list
@@ -51,10 +55,17 @@ const TagsInput: React.FC = () => {
         onKeyDown={insertInputValue}
         fullWidth
         variant="outlined"
-        id="tags"
-        name="tags"
-        placeholder="add Tags"
-        label="tags"
+        id="emails"
+        name="emails"
+        placeholder="Add new e-mail"
+        label="emails"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <img src={EmailIcon} className={classes.emailIcon} />
+            </InputAdornment>
+          ),
+        }}
       />
     </>
   )
