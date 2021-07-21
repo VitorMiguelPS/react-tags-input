@@ -28,11 +28,15 @@ const TagsInput: React.FC = () => {
     5: 'Enter',
   }
 
-  //Function to verify if the email is valid using a regex as comparison method
-  const verifyEmail = (email: string) => {
+  //Function to verify if the email is valid using a regex as comparison unit
+  const validEmail = (email: string) => {
     const regexEmail =
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i
-    return regexEmail.test(email)
+
+    if (regexEmail.test(email)) {
+      emails.push(email)
+      setEmails([...emails])
+    }
   }
 
   // Function that check all key pressed in input and record a new tag if the key pressed is any of the key in the onject registerCharacters
@@ -41,8 +45,19 @@ const TagsInput: React.FC = () => {
       if (e.code === registerCharacters[i]) {
         e.preventDefault()
 
-        if (verifyEmail(e.target.value)) {
-          setEmails([...emails, e.target.value])
+        // Verify if the text in the input contains more than one email separeted by ";"
+        if (e.target.value.indexOf(';') >= 0) {
+          // Remove all ";" and populate a new array
+          const arrayEmails = e.target.value.split(';')
+
+          // Remove all " "(blank space) in the strings of array and call the function that valid email
+          arrayEmails.forEach((element, index) => {
+            arrayEmails[index] = element.trim()
+            validEmail(arrayEmails[index])
+          })
+          e.target.value = ''
+        } else {
+          validEmail(e.target.value)
           e.target.value = ''
         }
       }
