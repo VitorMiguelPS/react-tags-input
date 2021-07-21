@@ -48,7 +48,7 @@ const TagsInput: React.FC = () => {
         // Verify if the text in the input contains more than one email separeted by ";"
         if (e.target.value.indexOf(';') >= 0) {
           // Remove all ";" and populate a new array
-          const arrayEmails = e.target.value.split(';')
+          const arrayEmails: string[] = e.target.value.split(';')
 
           // Remove all " "(blank space) in the strings of array and call the function that valid email
           arrayEmails.forEach((element: string, index: number) => {
