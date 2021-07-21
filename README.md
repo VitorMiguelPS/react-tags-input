@@ -11,7 +11,6 @@ npm install
 npm start
 ```
 
-## Testes
+## Dependências
 
-Para executar os tests, executar o comando `npm test`. O mesmo pode ser feito com o `yarn`.
-
+1. **Material-UI:** Para criar e gerenciar o estilo da aplicação.
